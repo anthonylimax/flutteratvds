@@ -11,8 +11,7 @@ class Login extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             "Meu App",
-            style:
-                TextStyle(color: Colors.white), // Correção do uso do TextStyle
+            style: TextStyle(color: Colors.white),
           ),
           centerTitle: true,
           backgroundColor: Colors.blue,
@@ -50,7 +49,13 @@ class Login extends StatelessWidget {
             ),
             Container(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  // Navegar para a nova página simples
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SimplePage()),
+                  );
+                },
                 child: Text("Login"),
                 style: ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll<Color>(Colors.blue),
@@ -77,6 +82,22 @@ class Login extends StatelessWidget {
             )
           ]),
         ),
+      ),
+    );
+  }
+}
+
+// A nova página simples
+class SimplePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Página Simples"),
+      ),
+      body: Center(
+        child:
+            Text("Você está na nova página!", style: TextStyle(fontSize: 24)),
       ),
     );
   }
